@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phúc An Retail - Nền Tảng Phân Tích & Quản Trị Bán Lẻ (5 Bước & 2 Cổng Duyệt)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light min-h-screen p-2 sm:p-6 flex items-center justify-center">
+
+  <!-- OUTER CONTAINER (Mô phỏng toàn bộ Dashboard Extej) -->
+  <div class="w-full max-w-[1440px] mx-auto extej-main-container rounded-[28px] overflow-hidden flex flex-col lg:flex-row min-h-[940px]">
+    
+    <!-- 1. LEFT SIDEBAR (EXACT MATCH EXTEJ DESIGN) -->
+    <aside class="w-full lg:w-64 extej-sidebar p-5 flex flex-col justify-between shrink-0 no-print">
+      <div class="space-y-6">
+        
+        <!-- Brand Logo (Ashlar Geometric Design) -->
+        <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-slate-900 font-black shadow-sm">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="4" y="4" width="6.5" height="6.5" rx="2"/>
+                <rect x="13.5" y="4" width="6.5" height="6.5" rx="2"/>
+                <rect x="4" y="13.5" width="6.5" height="6.5" rx="2"/>
+                <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-bold text-lg text-slate-900 dark:text-white tracking-tight" data-i18n="brandTitle">Phúc An</span>
+              <span class="block text-[10px] text-slate-400 font-bold uppercase tracking-wider font-mono">Portfolio • Ashlar</span>
+            </div>
+          </div>
+          <button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Section 1: PAGES (Pipeline Navigation) -->
+        <div class="space-y-1">
+          <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3.5" data-i18n="navPagesTitle">PAGES • QUY TRÌNH</span>
+          <nav class="space-y-1 pt-1.5">
+            <button data-section="sec-overview" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-slate-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
+                <span data-i18n="navOverview">Tổng quan & Biểu đồ</span>
+              </span>
+              <span class="text-[11px] text-slate-400">1 &rsaquo;</span>
+            </button>
+
+            <button data-section="sec-cleansing" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-slate-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                <span data-i18n="navCleansing">Làm sạch & Cổng duyệt 1</span>
+              </span>
+              <span id="navBadgeGate1" class="text-[9px] px-1.5 py-0.5 rounded bg-amber-100 text-amber-700 font-bold">Cổng 1</span>
+            </button>
+
+            <button data-section="sec-stores" class="sidebar-link active w-full text-left">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                <span data-i18n="navStores">Báo cáo 18 Cửa hàng</span>
+              </span>
+              <span class="text-[11px] text-white/80">Code &rsaquo;</span>
+            </button>
+
+            <button data-section="sec-reports" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-slate-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                <span data-i18n="navReports">Nhận định AI & Đối chiếu</span>
+              </span>
+              <span class="text-[11px] text-slate-400">100% &rsaquo;</span>
+            </button>
+
+            <button data-section="sec-decisions" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-slate-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span data-i18n="navDecisions">Chỉ đạo & Cổng duyệt 2</span>
+              </span>
+              <span id="navBadgeGate2" class="text-[9px] px-1.5 py-0.5 rounded bg-rose-100 text-rose-700 font-bold">Cổng 2</span>
+            </button>
+
+            <button data-section="sec-ai-advisor" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-orange-500 group-hover:text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span class="font-bold text-orange-600 dark:text-orange-400" data-i18n="navAiAdvisor">AI Đề Xuất & Lời Khuyên</span>
+              </span>
+              <span id="navBadgeAiAdvisor" class="text-[9px] px-1.5 py-0.5 rounded-full bg-orange-100 text-orange-700 font-bold dark:bg-orange-950/60 dark:text-orange-300">AI ✨</span>
+            </button>
+          </nav>
+        </div>
+
+        <!-- Section 2: CÔNG CỤ QUẢN TRỊ & KIỂM TOÁN -->
+        <div class="space-y-1">
+          <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider px-3.5" data-i18n="navToolsTitle">CÔNG CỤ QUẢN TRỊ</span>
+          <nav class="space-y-1 pt-1.5 text-xs text-slate-500">
+            <button data-section="sec-audit" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-slate-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Nhật ký kiểm toán (Audit)</span>
+              </span>
+              <span id="auditCountBadge" class="text-[9px] px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-mono">0</span>
+            </button>
+
+            <button data-section="sec-workflow" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-slate-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                <span data-i18n="navWorkflow">Quy trình 5 Bước & 7 Luật</span>
+              </span>
+            </button>
+
+            <button data-section="sec-upload" class="sidebar-link w-full text-left group">
+              <span class="flex items-center gap-2.5">
+                <svg class="w-4 h-4 text-slate-400 group-hover:text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                <span data-i18n="navUpload">Nạp POS / File Sheet</span>
+              </span>
+            </button>
+          </nav>
+        </div>
+
+        <!-- Section 3: TRỢ LÝ COPILOT SHORTCUT -->
+        <div class="p-3 rounded-2xl bg-orange-50 dark:bg-slate-800/60 border border-orange-200/60 dark:border-slate-700 space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Trợ Lý Copilot</span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight">Chế độ Chỉ-Đọc (Read-Only) đảm bảo toàn vẹn dữ liệu đối soát.</p>
+          <button id="btnOpenCopilot" class="w-full py-1.5 px-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs transition-all shadow-sm">
+            Mở Khung Chat Copilot
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Bottom User / State Badge -->
+      <div class="pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+        <span class="flex items-center gap-1.5">
+          <span id="systemStateDot" class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span id="systemStateLabel">State: INGESTED</span>
+        </span>
+        <button id="btnResetPipeline" class="hover:text-rose-500 font-mono text-[10px]" title="Đặt lại toàn bộ phiên làm việc">Reset</button>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN APPLICATION WORKSPACE -->
+    <main class="flex-1 flex flex-col overflow-y-auto smooth-scroll-container">
+
+      <!-- TOP NAV BAR (Search, Notifications, Profile, Toggle Theme, Flag Language) -->
+      <header class="px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-20 bg-white dark:bg-slate-900 shadow-sm no-print">
+        
+        <!-- Search bar -->
+        <div class="relative w-full sm:w-72">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" id="globalSearch" placeholder="Tìm kiếm cửa hàng, quản lý, thành phố..." class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full pl-9 pr-4 py-2 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 transition-all">
+        </div>
+
+        <!-- Right Controls: Notification, Profile, Switch Theme, Flag -->
+        <div class="flex items-center gap-3.5 sm:gap-4 w-full sm:w-auto justify-end">
+          
+          <!-- Notification Bell -->
+          <button class="relative p-2 text-slate-400 hover:text-orange-500 rounded-full hover:bg-orange-50 dark:hover:bg-slate-800 transition-all" title="Thông báo hệ thống">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-orange-500"></span>
+          </button>
+
+          <!-- Profile Badge (Austin Robertson style) -->
+          <div class="flex items-center gap-2.5 pl-2 border-l border-slate-200 dark:border-slate-700">
+            <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-400 to-amber-500 flex items-center justify-center font-bold text-white text-xs shadow-sm">
+              GĐ
+            </div>
+            <div class="hidden sm:block text-left">
+              <span class="block text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">Austin Robertson</span>
+              <span class="block text-[10px] text-slate-400 leading-tight">Giám Đốc Kinh Doanh</span>
+            </div>
+          </div>
+
+          <!-- Theme Toggle Switch -->
+          <div class="flex items-center gap-1.5 pl-2 border-l border-slate-200 dark:border-slate-700">
+            <button id="btnThemeToggle" class="relative inline-flex h-6 w-11 items-center rounded-full bg-slate-200 dark:bg-orange-500 transition-colors focus:outline-none" title="Chuyển chế độ sáng / tối">
+              <span id="themeSliderDot" class="inline-block h-4 w-4 transform rounded-full bg-white shadow-md transition-transform translate-x-1 dark:translate-x-6"></span>
+            </button>
+            <span id="themeIconLabel" class="text-xs">☀️</span>
+          </div>
+
+          <!-- Language Flag Selector -->
+          <button id="btnLangToggle" class="flex items-center gap-1 p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-base" title="Chuyển ngôn ngữ / Switch language">
+            <span id="langFlag">🇻🇳</span>
+            <span id="langCode" class="text-xs font-bold text-slate-600 dark:text-slate-300">VN</span>
+          </button>
+
+        </div>
+      </header>
+
+      <!-- DASHBOARD CONTENT AREA -->
+      <div class="p-4 sm:p-6 pb-36 space-y-6">
+
+        <!-- HEADER TITLE & PIPELINE TRIGGER -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <h2 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight" data-i18n="pageTitle">Wallet & Analytics</h2>
+              <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-100 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-900/40 font-mono">5 STEPS • 2 GATES</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5" data-i18n="pageSubtitle">Quy trình tự động hóa đối soát doanh thu, giá vốn COGS và chỉ đạo điều hành 18 điểm bán</p>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <button id="btnRunDashboard" class="btn-orange-primary px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 shadow-md">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
+              <span data-i18n="btnLoadAnalyze">Chạy Toàn Bộ Quy Trình</span>
+            </button>
+            <button id="btnQuickPrint" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              <span>In Báo Cáo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- PIPELINE STEPPER BAR: 5 BƯỚC & 2 CỔNG DUYỆT (INTERACTIVE BAR)  -->
+        <!-- ============================================================== -->
+        <div class="pipeline-stepper no-print">
+          
+          <!-- Step 1: Tiếp nhận -->
+          <div id="stepCard1" class="step-card step-done" data-step="1" data-section="sec-upload">
+            <div class="w-6 h-6 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold text-xs shrink-0">1</div>
+            <div class="min-w-0">
+              <span class="block text-[9px] font-bold text-slate-400 uppercase">Bước 1</span>
+              <span class="block text-[11px] font-bold text-slate-800 dark:text-slate-100 whitespace-nowrap">Nạp Dữ Liệu</span>
+            </div>
+          </div>
+
+          <!-- Step 2: Làm sạch -->
+          <div id="stepCard2" class="step-card" data-step="2" data-section="sec-cleansing">
+            <div class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 flex items-center justify-center font-bold text-xs shrink-0">2</div>
+            <div class="min-w-0">
+              <span class="block text-[9px] font-bold text-slate-400 uppercase">Bước 2</span>
+              <span class="block text-[11px] font-bold text-slate-800 dark:text-slate-100 whitespace-nowrap">Làm Sạch Dữ Liệu</span>
+            </div>
+          </div>
+
+          <!-- Gate 1: Cổng duyệt 1 -->
+          <div id="stepCardGate1" class="step-card border-amber-300 dark:border-amber-800" data-step="gate1" data-section="sec-cleansing">
+            <div class="w-6 h-6 rounded-lg bg-amber-500 text-white flex items-center justify-center font-bold text-xs shrink-0">🔒</div>
+            <div class="min-w-0">
+              <span class="step-badge-gate bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300">Cổng 1</span>
+              <span id="gate1StepperLabel" class="block text-[11px] font-bold text-amber-600 dark:text-amber-400 whitespace-nowrap">Chờ Duyệt Data</span>
+            </div>
+          </div>
+
+          <!-- Step 3: Tính chỉ số -->
+          <div id="stepCard3" class="step-card step-locked" data-step="3" data-section="sec-stores">
+            <div class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-400 flex items-center justify-center font-bold text-xs shrink-0">3</div>
+            <div class="min-w-0">
+              <span class="block text-[9px] font-bold text-slate-400 uppercase">Bước 3</span>
+              <span class="block text-[11px] font-bold text-slate-800 dark:text-slate-100 whitespace-nowrap">Chỉ Số & 18 CH</span>
+            </div>
+          </div>
+
+          <!-- Step 4: Nhận định AI -->
+          <div id="stepCard4" class="step-card step-locked" data-step="4" data-section="sec-reports">
+            <div class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-400 flex items-center justify-center font-bold text-xs shrink-0">4</div>
+            <div class="min-w-0">
+              <span class="block text-[9px] font-bold text-slate-400 uppercase">Bước 4</span>
+              <span class="block text-[11px] font-bold text-slate-800 dark:text-slate-100 whitespace-nowrap">Báo Cáo & AI</span>
+            </div>
+          </div>
+
+          <!-- Gate 2: Cổng duyệt 2 -->
+          <div id="stepCardGate2" class="step-card border-rose-300 dark:border-rose-800 step-locked" data-step="gate2" data-section="sec-decisions">
+            <div class="w-6 h-6 rounded-lg bg-rose-500 text-white flex items-center justify-center font-bold text-xs shrink-0">🔒</div>
+            <div class="min-w-0">
+              <span class="step-badge-gate bg-rose-100 text-rose-700 dark:bg-rose-900/50 dark:text-rose-300">Cổng 2</span>
+              <span id="gate2StepperLabel" class="block text-[11px] font-bold text-rose-600 dark:text-rose-400 whitespace-nowrap">Chờ Ký GĐKD</span>
+            </div>
+          </div>
+
+          <!-- Step 5: Xuất bản & Copilot -->
+          <div id="stepCard5" class="step-card step-locked" data-step="5" data-section="sec-decisions">
+            <div class="w-6 h-6 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-400 flex items-center justify-center font-bold text-xs shrink-0">5</div>
+            <div class="min-w-0">
+              <span class="block text-[9px] font-bold text-slate-400 uppercase">Bước 5</span>
+              <span class="block text-[11px] font-bold text-slate-800 dark:text-slate-100 whitespace-nowrap">Xuất Bản & Chat</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- ASHLAR PORTFOLIO & ANALYTICS DASHBOARD (MATCH VIDEO EXACTLY)   -->
+        <!-- ============================================================== -->
+
+        <!-- SECTION 1: TỔNG QUAN & BIỂU ĐỒ (ASHLAR PORTFOLIO DASHBOARD)    -->
+        <div id="sec-overview" class="space-y-6">
+
+          <!-- Ashlar Account / Regional Filter Pills Bar -->
+          <div class="flex items-center justify-between gap-3 flex-wrap bg-white dark:bg-slate-900 p-3.5 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center gap-1.5 overflow-x-auto pb-1" id="ashlarAccountPillsContainer">
+              <button class="ashlar-pill active" data-account="ALL">Toàn Hệ Thống (All)</button>
+              <button class="ashlar-pill" data-account="BAC">Miền Bắc (7 CH)</button>
+              <button class="ashlar-pill" data-account="NAM">Miền Nam (7 CH)</button>
+              <button class="ashlar-pill" data-account="TRUNG">Miền Trung (4 CH)</button>
+              <button class="ashlar-pill" data-account="DIRECT">Kênh Trực Tiếp</button>
+              <button class="ashlar-pill" data-account="OMNI">Kênh Đa Kênh</button>
+            </div>
+            <div class="flex items-center gap-3 text-xs text-slate-400 font-mono">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Số liệu chốt ngày 31/10/2026</span>
+              </span>
+              <button onclick="document.getElementById('fileUploadInput').click()" class="text-slate-500 hover:text-slate-900 dark:hover:text-white font-bold flex items-center gap-1">
+                <span>+ Nạp File</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3 TOP KPI CARDS (WALLET & ANALYTICS) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Card 1: Doanh Thu Thuần -->
+            <div class="extej-card p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span>
+                  <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Doanh Thu Thuần</span>
+                </div>
+                <span id="kpiNetRevMoMBadge" class="text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md font-mono text-[11px] whitespace-nowrap">Chờ nạp dữ liệu</span>
+              </div>
+              <div id="kpiNetRev" class="py-1">
+                <span class="text-2xl xl:text-3xl font-black text-slate-900 dark:text-white font-mono tracking-tight block whitespace-nowrap">---&nbsp;<span class="text-base font-semibold text-slate-400">₫</span></span>
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800 pt-2.5">
+                <span>Giá vốn COGS:</span>
+                <span id="kpiCogs" class="font-bold text-slate-700 dark:text-slate-300 font-mono whitespace-nowrap">---&nbsp;₫</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Lợi Nhuận Gộp (GP) -->
+            <div class="extej-card p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span id="kpiGrossProfitDot" class="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                  <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Lợi Nhuận Gộp (GP)</span>
+                </div>
+                <span id="kpiGpMarginBadge" class="text-[11px] font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-lg whitespace-nowrap">Biên ---%</span>
+              </div>
+              <div id="kpiGrossProfit" class="py-1">
+                <span class="text-2xl xl:text-3xl font-black text-slate-900 dark:text-white font-mono tracking-tight block whitespace-nowrap">---&nbsp;<span class="text-base font-semibold text-slate-400">₫</span></span>
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800 pt-2.5">
+                <span>Hạch toán bù COGS:</span>
+                <span id="kpiReturnsCount" class="font-bold text-slate-700 dark:text-slate-300 font-mono whitespace-nowrap">---</span>
+              </div>
+            </div>
+
+            <!-- Card 3: % Hoàn Thành Kế Hoạch -->
+            <div class="extej-card p-5 space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span id="kpiTargetDot" class="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                  <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">% Hoàn Thành Kế Hoạch</span>
+                </div>
+                <span id="kpiTargetStatusBadge" class="text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md text-[11px] font-bold whitespace-nowrap">Chờ nạp dữ liệu</span>
+              </div>
+              <div id="kpiTargetPct" class="py-1">
+                <span class="text-2xl xl:text-3xl font-black text-slate-900 dark:text-white font-mono tracking-tight block whitespace-nowrap">---%</span>
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 dark:border-slate-800 pt-2.5">
+                <span>Trạng thái điểm bán:</span>
+                <span id="kpiStoresApprovedStatus" class="font-bold text-slate-700 dark:text-slate-300 font-mono whitespace-nowrap">---</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main 12-Column Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- LEFT 8 COLUMNS: HERO CARD + CHART + HOLDINGS + AI ADVISOR -->
+            <div class="lg:col-span-8 space-y-6">
+
+              <!-- 1. THE SIGNATURE ASHLAR HERO CARD -->
+              <div class="ashlar-hero-card p-6 sm:p-7 space-y-4">
+                <div class="flex items-center justify-between">
+                  <div class="space-y-0.5">
+                    <span class="text-xs uppercase tracking-wider font-semibold text-emerald-300/90 block font-mono">TỔNG DOANH THU THUẦN (ALL ACCOUNTS)</span>
+                    <span class="text-[11px] text-white/60">Dữ liệu hạch toán thực tế đối soát 100% bằng code</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-white/10 text-emerald-300 border border-white/10 font-mono">
+                    KỲ T10/2026 • 100% CODE TÍNH
+                  </span>
+                </div>
+
+                <div class="pt-1">
+                  <span id="heroNetRev" class="text-3xl sm:text-4xl xl:text-5xl font-black text-white font-mono tracking-tight block">
+                    ---&nbsp;<span class="text-xl font-semibold text-emerald-300">₫</span>
+                  </span>
+                  <div class="flex items-center gap-4 text-xs font-medium text-emerald-100/90 pt-2 flex-wrap">
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400"></span><span id="heroDotBac">Miền Bắc: ---</span></span>
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-lime-400"></span><span id="heroDotNam">Miền Nam: ---</span></span>
+                    <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-amber-400"></span><span id="heroDotTrung">Miền Trung: ---</span></span>
+                  </div>
+                </div>
+
+                <!-- 4 Sub-Metrics inside Hero Card -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-5 border-t border-white/10 mt-4 text-xs">
+                  <div>
+                    <span class="text-white/60 block text-[10px] uppercase font-medium">Doanh Thu Gốc</span>
+                    <span id="heroGrossRev" class="font-bold text-white font-mono text-sm block mt-0.5 whitespace-nowrap">---&nbsp;₫</span>
+                  </div>
+                  <div>
+                    <span class="text-rose-300 block text-[10px] uppercase font-medium">Khấu Trừ Đổi Trả</span>
+                    <span id="heroReturns" class="font-bold text-rose-300 font-mono text-sm block mt-0.5 whitespace-nowrap">0&nbsp;₫</span>
+                  </div>
+                  <div>
+                    <span class="text-white/60 block text-[10px] uppercase font-medium">Giá Vốn COGS</span>
+                    <span id="heroCogs" class="font-bold text-white font-mono text-sm block mt-0.5 whitespace-nowrap">---&nbsp;₫</span>
+                  </div>
+                  <div>
+                    <span class="text-emerald-300 block text-[10px] uppercase font-medium">Lợi Nhuận Gộp (GP)</span>
+                    <span id="heroGp" class="font-bold text-emerald-300 font-mono text-sm block mt-0.5 whitespace-nowrap">---&nbsp;₫</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. RECONCILIATION TREND CHART (Matching Frame 00:00 - 00:04) -->
+              <div class="extej-card p-6 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white" data-i18n="chartTitle">Doanh Thu Thuần & Tiến Độ Thực Hiện</h3>
+                    <p class="text-xs text-slate-400" id="chartSubtitleText" data-i18n="chartSubtitle">Chờ nạp dữ liệu • 31 ngày hạch toán độc lập (100% Code tính)</p>
+                  </div>
+
+                  <!-- Time filter pills -->
+                  <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800/60 p-1 rounded-xl">
+                    <span class="filter-pill" data-range="1D">1D</span>
+                    <span class="filter-pill" data-range="7D">7D</span>
+                    <span class="filter-pill active" data-range="1M">1M</span>
+                    <span class="filter-pill" data-range="3M">3M</span>
+                    <span class="filter-pill" data-range="6M">6M</span>
+                    <span class="filter-pill" data-range="1Y">1Y</span>
+                    <span class="filter-pill" data-range="ALL">ALL</span>
+                  </div>
+                </div>
+
+                <!-- EMPTY STATE FOR CHART (When in INIT / No Data) -->
+                <div id="chartEmptyState" class="w-full h-64 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center p-6 space-y-3 bg-slate-50/50 dark:bg-slate-800/20 transition-all">
+                  <div class="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-950/40 text-orange-500 flex items-center justify-center shadow-sm">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                  </div>
+                  <div class="max-w-sm space-y-1">
+                    <span class="block text-sm font-bold text-slate-800 dark:text-slate-200">Chưa Có Dữ Liệu Biểu Đồ</span>
+                    <p class="text-xs text-slate-400 leading-relaxed">Vui lòng tải lên file POS hoặc Google Sheet để xem phân tích</p>
+                  </div>
+                  <button type="button" onclick="document.getElementById('fileUploadInput').click()" class="btn-orange-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    <span>+ Tải Lên File Ngay</span>
+                  </button>
+                </div>
+
+                <!-- LIVE SVG CHART CONTAINER (Hidden in Empty State) -->
+                <div id="chartLiveContent" class="hidden space-y-3">
+                  <div class="relative w-full h-64 pt-2">
+                    <div class="absolute top-4 right-1/4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl rounded-xl px-3 py-1.5 z-10">
+                      <span class="text-[10px] text-slate-400 block font-semibold">Doanh Thu Thuần Chuỗi</span>
+                      <span class="text-xs font-bold text-slate-900 dark:text-white font-mono whitespace-nowrap"><span id="chartTooltipRev">---</span>&nbsp;₫ <span id="chartTooltipMoM" class="text-emerald-500 font-bold ml-1">---%</span></span>
+                    </div>
+
+                    <svg class="w-full h-full" viewBox="0 0 800 220" preserveAspectRatio="none">
+                      <defs>
+                        <linearGradient id="extejOrangeGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#2D3A29" stop-opacity="0.35"/>
+                          <stop offset="100%" stop-color="#2D3A29" stop-opacity="0.0"/>
+                        </linearGradient>
+                        <linearGradient id="extejBlueGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.25"/>
+                          <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.0"/>
+                        </linearGradient>
+                      </defs>
+
+                      <line x1="0" y1="180" x2="800" y2="180" stroke="#E2E8F0" stroke-width="0.8" stroke-dasharray="4,4" class="dark:stroke-slate-800"/>
+                      <line x1="0" y1="120" x2="800" y2="120" stroke="#E2E8F0" stroke-width="0.8" stroke-dasharray="4,4" class="dark:stroke-slate-800"/>
+                      <line x1="0" y1="60" x2="800" y2="60" stroke="#E2E8F0" stroke-width="0.8" stroke-dasharray="4,4" class="dark:stroke-slate-800"/>
+
+                      <path d="M 0 170 Q 150 140 280 160 T 520 120 T 700 130 T 800 110 L 800 220 L 0 220 Z" fill="url(#extejBlueGrad)" />
+                      <path d="M 0 170 Q 150 140 280 160 T 520 120 T 700 130 T 800 110" fill="none" stroke="#38BDF8" stroke-width="2" />
+
+                      <path d="M 0 140 Q 120 90 220 130 T 400 80 T 580 45 T 720 70 T 800 35 L 800 220 L 0 220 Z" fill="url(#extejOrangeGrad)" />
+                      <path d="M 0 140 Q 120 90 220 130 T 400 80 T 580 45 T 720 70 T 800 35" fill="none" stroke="#2D3A29" stroke-width="3" />
+                    </svg>
+                  </div>
+
+                  <div class="flex items-center justify-between text-[11px] text-slate-400 font-mono border-t border-slate-100 dark:border-slate-800 pt-3">
+                    <span>Ngày 01/10</span>
+                    <span>Ngày 08/10</span>
+                    <span>Ngày 15/10</span>
+                    <span>Ngày 22/10</span>
+                    <span>Ngày 31/10</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. HOLDINGS TABLE: 18 CỬA HÀNG (Matching Frame 00:02 - 00:04) -->
+              <div class="extej-card p-6 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">Holdings • Danh Sách 18 Cửa Hàng & Điểm Bán</h3>
+                    <p class="text-xs text-slate-400">Nhấp vào bất kỳ cửa hàng nào để xem phân tích chi tiết và gói chỉ đạo</p>
+                  </div>
+
+                  <!-- Ashlar Status Filter Tabs -->
+                  <div class="flex items-center gap-1.5 flex-wrap" id="holdingsStatusTabs">
+                    <button class="ashlar-pill active" data-status-filter="ALL">Tất Cả (18)</button>
+                    <button class="ashlar-pill" data-status-filter="ON_PLAN">🟢 Đạt Chuẩn (14)</button>
+                    <button class="ashlar-pill" data-status-filter="WATCH">🟡 Theo Dõi (1)</button>
+                    <button class="ashlar-pill" data-status-filter="AT_RISK">🔴 Điểm Nóng (3)</button>
+                  </div>
+                </div>
+
+                <!-- Table -->
+                <div class="overflow-x-auto rounded-2xl border border-slate-100 dark:border-slate-800">
+                  <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                    <thead class="bg-slate-50 dark:bg-slate-800/60 text-[10px] uppercase font-bold text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                      <tr>
+                        <th class="p-3">Cửa Hàng (Holding)</th>
+                        <th class="p-3">Khu Vực & Kênh</th>
+                        <th class="p-3 text-right">Doanh Thu Thuần</th>
+                        <th class="p-3 text-right">Giá Vốn COGS</th>
+                        <th class="p-3 text-right">Lợi Nhuận GP</th>
+                        <th class="p-3 text-right">% Hoàn Thành</th>
+                        <th class="p-3 text-right">Đổi Trả</th>
+                        <th class="p-3 text-center">Trạng Thái</th>
+                        <th class="p-3 text-center">Chi Tiết</th>
+                      </tr>
+                    </thead>
+                    <tbody id="ashlarHoldingsTableBody" class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
+                      <!-- Dynamically populated rows -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- 4. AI ADVISORY DASHBOARD • ĐỀ XUẤT & LỜI KHUYÊN CHIẾN LƯỢC -->
+              <div class="extej-card p-6 space-y-5">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-orange-100 dark:bg-orange-950/60 text-orange-600 dark:text-orange-400 border border-orange-200 dark:border-orange-900/40 font-mono flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
+                        AI STRATEGIC ADVISOR
+                      </span>
+                      <span id="aiAdvisoryCountBadge" class="text-[11px] font-bold text-slate-500 dark:text-slate-400 font-mono">Chờ nạp dữ liệu</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-0.5 flex items-center gap-1.5">
+                      <span>Trung Tâm Đề Xuất & Lời Khuyên Chiến Lược AI</span>
+                      <span class="text-orange-500">✨</span>
+                    </h3>
+                    <p class="text-xs text-slate-400">Hệ thống AI tự động phân tích sâu từ dữ liệu kinh doanh, đưa ra các gói đề xuất tăng trưởng và giải pháp quản trị</p>
+                  </div>
+
+                  <div class="flex items-center gap-2">
+                    <button id="btnGenerateAiAdvice" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all">
+                      <svg id="generateAdviceIcon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                      <span>Phân Tích Thêm Lời Khuyên</span>
+                    </button>
+                    <button onclick="document.getElementById('copilotFloatingBtn').click()" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1 border border-slate-200 dark:border-slate-700">
+                      <span>Hỏi Copilot</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Filter tabs -->
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs" id="aiFilterTabsContainer">
+                  <button class="ai-filter-pill active" data-filter="ALL">Tất Cả Đề Xuất</button>
+                  <button class="ai-filter-pill" data-filter="CRITICAL">🔴 Cảnh Báo Khẩn Cấp</button>
+                  <button class="ai-filter-pill" data-filter="REVENUE">🟡 Tăng Trưởng Doanh Số</button>
+                  <button class="ai-filter-pill" data-filter="COGS">🟢 Tối Ưu Giá Vốn & GP</button>
+                  <button class="ai-filter-pill" data-filter="CHANNEL">🔵 Mở Rộng Kênh Bán</button>
+                </div>
+
+                <!-- Summary KPI ribbon for AI Advisory -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 dark:bg-slate-800/40 p-3 rounded-2xl border border-slate-100 dark:border-slate-800 text-xs">
+                  <div>
+                    <span class="text-slate-400 block text-[10px]">Tiềm Năng Bứt Phá</span>
+                    <span id="aiGrowthPotential" class="font-bold text-slate-500 dark:text-slate-400 font-mono text-sm">---%</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[10px]">Trọng Tâm Chiến Lược</span>
+                    <span id="aiFocusArea" class="font-bold text-slate-800 dark:text-slate-200 truncate block text-xs">Chờ nạp dữ liệu</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[10px]">Cảnh Báo Cần Xử Lý</span>
+                    <span id="aiCriticalCount" class="font-bold text-slate-500 dark:text-slate-400 font-mono text-sm">--- Điểm Nóng</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[10px]">Đề Xuất Đã Áp Dụng</span>
+                    <span id="aiAppliedCount" class="font-bold text-slate-500 dark:text-slate-400 font-mono text-sm">---</span>
+                  </div>
+                </div>
+
+                <!-- ROW OF 3 EXTEJ-STYLE AI RECOMMENDATION CARDS -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="aiRecCardsContainer">
+                  <div class="col-span-full p-8 text-center rounded-2xl bg-slate-50/50 dark:bg-slate-800/20 border border-dashed border-slate-200 dark:border-slate-700 space-y-2">
+                    <div class="w-10 h-10 mx-auto rounded-full bg-orange-100 dark:bg-orange-950/60 flex items-center justify-center text-orange-500 font-bold">✨</div>
+                    <div class="text-xs font-bold text-slate-700 dark:text-slate-300">Chưa có đề xuất chiến lược</div>
+                    <p class="text-[11px] text-slate-400 max-w-md mx-auto">Vui lòng tải lên file POS hoặc Google Sheet để xem phân tích</p>
+                  </div>
+                </div>
+
+                <!-- AI STRATEGIC ADVICE FEED (ACCORDION/INSIGHT PANELS) -->
+                <div class="space-y-3 pt-2">
+                  <div class="flex items-center justify-between">
+                    <h4 class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                      <span>Bảng Lời Khuyên Điều Hành & Giải Pháp Thực Tiễn:</span>
+                    </h4>
+                    <span class="text-[11px] text-slate-400">Tự động đối soát từ số liệu</span>
+                  </div>
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="aiAdviceFeedContainer">
+                    <div class="col-span-full p-6 text-center rounded-2xl bg-slate-50/50 dark:bg-slate-800/20 border border-dashed border-slate-200 dark:border-slate-700">
+                      <p class="text-xs text-slate-400">Vui lòng tải lên file POS hoặc Google Sheet để xem phân tích</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- RIGHT 4 COLUMNS: EXPOSURE + GATE STATUS + HOTSPOTS + UPLOAD -->
+            <div class="lg:col-span-4 space-y-5">
+
+              <!-- 1. EXPOSURE / PRODUCT MIX (Matching Frame 00:00 - 00:02) -->
+              <div class="extej-card p-5 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+                  <span class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider font-mono">EXPOSURE • CƠ CẤU NGÀNH HÀNG</span>
+                  <span class="text-[10px] text-slate-400 font-mono">Product Mix</span>
+                </div>
+                <div id="ashlarExposureList" class="space-y-3">
+                  <!-- Dynamic exposure bars -->
+                </div>
+              </div>
+
+              <!-- 2. GATE 1 & GATE 2 STATUS CARD (Pending & Realized) -->
+              <div class="extej-card p-5 space-y-3.5">
+                <span class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider font-mono block">CỔNG DUYỆT BẮT BUỘC (2 GATES)</span>
+                
+                <!-- Gate 1 Item -->
+                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                  <div class="space-y-0.5">
+                    <span class="text-[11px] font-bold text-slate-800 dark:text-slate-100 block">Cổng 1: Làm Sạch Dữ Liệu</span>
+                    <span class="text-[10px] text-slate-400 block" id="ashlarGate1SideText">Đã thẩm định 56.894 dòng</span>
+                  </div>
+                  <span id="ashlarGate1SideBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 font-mono">✓ ĐÃ DUYỆT</span>
+                </div>
+
+                <!-- Gate 2 Item -->
+                <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 flex items-center justify-between">
+                  <div class="space-y-0.5">
+                    <span class="text-[11px] font-bold text-slate-800 dark:text-slate-100 block">Cổng 2: Chỉ Đạo Điều Hành</span>
+                    <span class="text-[10px] text-slate-400 block" id="ashlarGate2SideText">Dấu mộc GĐKD</span>
+                  </div>
+                  <span id="ashlarGate2SideBadge" class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 font-mono">★ CHỜ KÝ</span>
+                </div>
+              </div>
+
+              <!-- 3. TOP HOTSPOT STORES (AT-RISK / WATCH) (Matching Frame 00:02 - 00:04) -->
+              <div class="extej-card p-5 space-y-3.5">
+                <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+                  <span class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider font-mono">ĐIỂM NÓNG CẦN XỬ LÝ (AT RISK)</span>
+                  <span id="ashlarHotspotCountBadge" class="text-[10px] font-bold text-slate-400 font-mono">---</span>
+                </div>
+
+                <div class="space-y-2.5" id="ashlarHotspotList">
+                  <div class="p-4 text-center text-slate-400 text-xs font-mono">
+                    Vui lòng tải lên file POS hoặc Google Sheet để xem phân tích
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. UPLOAD / CONNECTOR CARD -->
+              <div id="dropArea" class="border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-slate-900 dark:hover:border-white rounded-2xl p-5 flex flex-col items-center justify-center text-center cursor-pointer bg-slate-50/50 dark:bg-slate-800/20 transition-all space-y-1.5">
+                <span class="text-base font-black text-slate-800 dark:text-white">+ TẢI FILE POS / SHEET</span>
+                <span class="text-xs font-semibold text-slate-600 dark:text-slate-300">Kéo thả CSV / XLSX hoặc kết nối Google Sheet</span>
+                <span class="text-[10px] text-slate-400">100% đối soát không sai lệch</span>
+                <input type="file" id="fileUploadInput" accept=".csv,.xlsx" class="hidden">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- ASHLAR STORE DETAIL & DIRECTIVE VIEW (MATCH FRAME 00:05 - 00:09) -->
+        <!-- ============================================================== -->
+        <div id="sec-store-detail" class="hidden space-y-6">
+
+          <!-- Breadcrumb & Header -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-800">
+            <div class="flex items-center gap-3">
+              <button id="btnBackToHoldings" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold flex items-center gap-1 transition-all">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                <span>Holdings</span>
+              </button>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h3 id="storeDetailTitle" class="text-xl font-bold text-slate-900 dark:text-white">PA-05 • Phúc An Hà Đông</h3>
+                  <span id="storeDetailStatusBadge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-100 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300 font-mono">🔴 AT RISK</span>
+                </div>
+                <p id="storeDetailMeta" class="text-xs text-slate-400 mt-0.5">Khu vực: Miền Bắc (Hà Nội) • Quản lý: Trần Văn B • Kênh: Store & Omnichannel</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="askCopilotQuestion('Tư vấn phương án giải quyết khẩn cấp cho cửa hàng PA-05 Hà Đông')" class="ashlar-pill hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold border border-slate-200 dark:border-slate-700">
+                <svg class="w-3.5 h-3.5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                <span>Nhắn Tin Quản Lý</span>
+              </button>
+              <button onclick="showSection('sec-cleansing')" class="ashlar-pill hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold border border-slate-200 dark:border-slate-700">
+                <span>Hồ Sơ Đối Soát Cổng 1</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Detail Content Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+            <!-- Left 7 columns: What's Happening + Decision Needed -->
+            <div class="lg:col-span-7 space-y-6">
+
+              <!-- WHAT'S HAPPENING CARD -->
+              <div class="extej-card p-6 space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
+                  <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider font-mono">SỰ CỐ ĐANG DIỄN RA (WHAT'S HAPPENING)</h4>
+                  <span class="text-[10px] font-bold text-rose-500 font-mono">Phát hiện từ 02/10/2026</span>
+                </div>
+                <div class="space-y-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300" id="storeDetailIssueContent">
+                  <!-- Dynamic issue description -->
+                </div>
+              </div>
+
+              <!-- DECISION NEEDED CARD (Matching Frame 00:05 - 00:09) -->
+              <div class="extej-card p-6 space-y-5 border-2 border-orange-500/20">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-[10px] font-bold text-orange-600 dark:text-orange-400 uppercase tracking-wider font-mono">GÓI QUYẾT ĐỊNH ĐIỀU HÀNH CẦN BAN HÀNH (DECISION NEEDED)</span>
+                    <h4 class="text-sm font-bold text-slate-900 dark:text-white">Chọn Phương Án Can Thiệp Trước Thứ Sáu, 17:00</h4>
+                  </div>
+                  <span class="text-xs font-mono font-bold text-slate-400">Cổng 2 • Giám đốc ký</span>
+                </div>
+
+                <!-- 3 Interactive Options -->
+                <div class="space-y-3" id="storeDecisionOptionsContainer">
+                  <!-- Option 1 -->
+                  <div class="ashlar-option-card selected" data-option="1" onclick="selectStoreOption(1)">
+                    <div class="flex items-start justify-between">
+                      <div class="space-y-1">
+                        <span class="font-bold text-xs text-slate-900 dark:text-white block">Phương án 1: Thu hồi khẩn cấp lô hàng & Phạt NCC bồi hoàn</span>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">Kiểm tra toàn bộ lô hàng phát sinh đổi trả và yêu cầu đối tác đối soát bồi hoàn 100% chi phí.</p>
+                      </div>
+                      <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 font-mono">KHUYẾN NGHỊ</span>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
+                      <span class="text-slate-400">Dự kiến thu hồi:</span>
+                      <span class="font-bold text-emerald-600 font-mono">+400.000.000&nbsp;₫</span>
+                    </div>
+                  </div>
+
+                  <!-- Option 2 -->
+                  <div class="ashlar-option-card" data-option="2" onclick="selectStoreOption(2)">
+                    <div class="flex items-start justify-between">
+                      <div class="space-y-1">
+                        <span class="font-bold text-xs text-slate-900 dark:text-white block">Phương án 2: Cấp voucher tri ân 15% & Đổi mới sản phẩm</span>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">Bảo vệ uy tín thương hiệu đối với khách hàng đã nhận sản phẩm lỗi, kích hoạt bảo hành tại nhà.</p>
+                      </div>
+                    </div>
+                    <div class="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
+                      <span class="text-slate-400">Ngân sách hỗ trợ:</span>
+                      <span class="font-bold text-slate-700 dark:text-slate-200 font-mono">50.000.000&nbsp;₫</span>
+                    </div>
+                  </div>
+
+                  <!-- Option 3 -->
+                  <div class="ashlar-option-card" data-option="3" onclick="selectStoreOption(3)">
+                    <div class="flex items-start justify-between">
+                      <div class="space-y-1">
+                        <span class="font-bold text-xs text-slate-900 dark:text-white block">Phương án 3: Tiếp tục theo dõi (Không can thiệp)</span>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">Chấp nhận tỷ lệ đổi trả hiện tại và đợi lô hàng tháng sau bổ sung.</p>
+                      </div>
+                      <span class="text-[10px] font-bold text-rose-500 font-mono">RỦI RO CAO</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AI Advisor Note -->
+                <div class="p-3.5 rounded-xl bg-orange-50/60 dark:bg-slate-800/60 border border-orange-200/60 dark:border-slate-700 text-xs space-y-1">
+                  <span class="font-bold text-orange-600 dark:text-orange-400 flex items-center gap-1.5 font-mono">
+                    <span>✨</span> ĐÁNH GIÁ ĐỘC LẬP TỪ AI AGENT:
+                  </span>
+                  <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-[11px]">
+                    Hệ thống nhận định lỗi rơ-le nhiệt là lỗi hệ thống do nhà sản xuất. Triển khai Phương án 1 sẽ ngăn chặn ngay lập tức nguy cơ đổi trả lan rộng sang các cửa hàng lân cận và thu hồi 100% giá vốn COGS.
+                  </p>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex items-center justify-between pt-2">
+                  <button onclick="askCopilotQuestion('Phân tích chi tiết phương án 1 xử lý sự cố tại PA-05 Hà Đông')" class="text-xs font-bold text-slate-500 hover:text-orange-500 flex items-center gap-1">
+                    <span>Tham vấn thêm Copilot →</span>
+                  </button>
+                  <button id="btnSignStoreDecision" onclick="signStoreDecision()" class="btn-orange-primary px-5 py-2.5 rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <span>KÝ DUYỆT & BAN HÀNH CỔNG 2</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right 5 columns: Stat Card + Metrics -->
+            <div class="lg:col-span-5 space-y-6">
+
+              <!-- WHAT IT MEANS STAT CARD (Deep Olive Card) -->
+              <div class="ashlar-hero-card p-6 space-y-4">
+                <span class="text-xs font-bold text-emerald-300/80 uppercase tracking-wider font-mono block">TÁC ĐỘNG KINH DOANH TẠI CỬA HÀNG</span>
+
+                <div class="space-y-4 pt-1">
+                  <div>
+                    <span class="text-white/60 text-[10px] uppercase block">Doanh Thu Thuần Kỳ Này</span>
+                    <span id="storeDetailNetRev" class="text-2xl font-black text-white font-mono block">---&nbsp;₫</span>
+                  </div>
+                  <div>
+                    <span class="text-white/60 text-[10px] uppercase block">Giá Vốn Hàng Bán (COGS)</span>
+                    <span id="storeDetailCogs" class="text-xl font-bold text-white font-mono block">---&nbsp;₫</span>
+                  </div>
+                  <div>
+                    <span class="text-rose-300 text-[10px] uppercase block">Thiệt Hại Do Hàng Đổi Trả</span>
+                    <span id="storeDetailReturns" class="text-xl font-bold text-rose-300 font-mono block">---&nbsp;₫</span>
+                  </div>
+                </div>
+
+                <div class="pt-4 border-t border-white/10 text-xs text-emerald-200/90 leading-relaxed">
+                  <span>Tỷ lệ hoàn hàng tại điểm bán này gấp gần 3 lần ngưỡng an toàn toàn chuỗi (3.5%).</span>
+                </div>
+              </div>
+
+              <!-- PERFORMANCE AGAINST PLAN -->
+              <div class="extej-card p-5 space-y-3">
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-wider font-mono">CHỈ SỐ SO VỚI KẾ HOẠCH (AGAINST PLAN)</h4>
+                <div class="space-y-2 text-xs">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Doanh thu đạt:</span>
+                    <span id="storeDetailRevPct" class="font-bold text-slate-800 dark:text-white font-mono">---%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Biên lợi nhuận GP:</span>
+                    <span id="storeDetailMargin" class="font-bold text-slate-800 dark:text-white font-mono">---%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Tăng trưởng MoM:</span>
+                    <span id="storeDetailMoM" class="font-bold text-emerald-500 font-mono">---%</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION AI ADVISOR TOÀN DIỆN (CHUYÊN TRANG ĐỀ XUẤT & LỜI KHUYÊN) -->
+        <!-- ============================================================== -->
+        <div id="sec-ai-advisor" class="extej-card p-6 space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider font-mono">AI STRATEGIC ADVISORY</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-300">ĐỘ TIN CẬY 96%</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-0.5">Bảng Điều Hành Đề Xuất & Lời Khuyên Chiến Lược Doanh Nghiệp</h3>
+              <p class="text-xs text-slate-400">Tổng hợp lộ trình can thiệp kinh doanh, tối ưu giá vốn và các gói chỉ đạo được đề xuất từ AI Agent</p>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button onclick="window.print()" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                <span>Xuất Báo Cáo Đề Xuất</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Deep-dive Advisor View Container -->
+          <div class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="aiPageRecCardsContainer">
+              <div class="col-span-full p-8 text-center rounded-2xl bg-slate-50/50 dark:bg-slate-800/20 border border-dashed border-slate-200 dark:border-slate-700 space-y-2">
+                <div class="w-10 h-10 mx-auto rounded-full bg-orange-100 dark:bg-orange-950/60 flex items-center justify-center text-orange-500 font-bold">✨</div>
+                <div class="text-xs font-bold text-slate-700 dark:text-slate-300">Chưa có đề xuất chiến lược</div>
+                <p class="text-[11px] text-slate-400 max-w-md mx-auto">Vui lòng tải lên file POS hoặc Google Sheet để xem phân tích</p>
+              </div>
+            </div>
+
+            <!-- Ma trận tác động vs mức độ ưu tiên -->
+            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-4">
+              <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">Ma Trận Tác Động & Lộ Trình Can Thiệp:</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                <div class="p-4 rounded-xl bg-rose-50/60 dark:bg-rose-950/20 border border-rose-200 dark:border-rose-900/40 space-y-1.5">
+                  <span class="font-bold text-rose-600 dark:text-rose-400 block text-[11px]">🔴 NHÓM 1: CAN THIỆP NGAY (0 - 48H)</span>
+                  <p class="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">Xử lý ngay các điểm nóng có tỷ lệ hoàn cao hoặc hụt doanh thu cục bộ để ngăn chặn thất thoát dòng tiền.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900/40 space-y-1.5">
+                  <span class="font-bold text-amber-600 dark:text-amber-400 block text-[11px]">🟡 NHÓM 2: TỐI ƯU HÓA (1 - 2 TUẦN)</span>
+                  <p class="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">Điều chỉnh cơ cấu ngành hàng, đẩy mạnh kênh Online và kích hoạt các chiến dịch CRM giữ chân khách hàng cũ.</p>
+                </div>
+                <div class="p-4 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40 space-y-1.5">
+                  <span class="font-bold text-emerald-600 dark:text-emerald-400 block text-[11px]">🟢 NHÓM 3: MỞ RỘNG BỀN VỮNG (1 THÁNG)</span>
+                  <p class="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">Đàm phán chiết khấu giá vốn COGS dài hạn với NCC và nhân rộng mô hình kinh doanh bán lẻ đa kênh (Omnichannel).</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Full Advice Feed -->
+            <div class="space-y-3">
+              <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">Toàn Bộ Lời Khuyên Điều Hành Chi Tiết:</h4>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="aiPageAdviceFeedContainer">
+                <div class="col-span-full p-6 text-center rounded-2xl bg-slate-50/50 dark:bg-slate-800/20 border border-dashed border-slate-200 dark:border-slate-700">
+                  <p class="text-xs text-slate-400">Vui lòng tải lên file POS hoặc Google Sheet để xem phân tích</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 2: LÀM SẠCH DỮ LIỆU & CỔNG DUYỆT 1 (GATE 1 APPROVAL)   -->
+        <!-- ============================================================== -->
+        <div id="sec-cleansing" class="extej-card p-6 space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider font-mono">BƯỚC 2 & CỔNG 1</span>
+                <span id="cleansingScoreBadge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400 font-mono">ĐỘ SẠCH ---%</span>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-0.5" data-i18n="cleansingTitle">Trung Tâm Làm Sạch Dữ Liệu & Thẩm Định Cổng Duyệt 1</h3>
+              <p class="text-xs text-slate-400" data-i18n="cleansingDesc">Khử trùng lặp giao dịch POS, bóc tách đơn hủy, khấu trừ đổi trả và bù trừ giá vốn COGS</p>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button id="btnExecuteCleanse" class="btn-orange-primary px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span data-i18n="btnRunCleanse">Chạy Làm Sạch Lại</span>
+              </button>
+              <a href="/api/export/clean-csv" download class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold px-3.5 py-2 rounded-xl transition-all border border-slate-200 dark:border-slate-700 flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>Tải CSV Sạch</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 5 Audit KPI Cards (Exact specification) -->
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 text-xs">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800">
+              <span class="text-slate-400 block text-[10px] font-bold uppercase">Tổng Dòng Gốc</span>
+              <span id="auditTotalRaw" class="text-base font-black text-slate-800 dark:text-white font-mono mt-0.5 block whitespace-nowrap">---</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-rose-50/60 dark:bg-rose-950/20 border border-rose-100 dark:border-rose-900/30">
+              <span class="text-rose-500 block text-[10px] font-bold uppercase">Đơn Trùng Đã Lọc</span>
+              <span id="auditDupRemoved" class="text-base font-black text-rose-500 font-mono mt-0.5 block whitespace-nowrap">0</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30">
+              <span class="text-amber-500 block text-[10px] font-bold uppercase">Đơn HỦY Loại Bỏ</span>
+              <span id="auditCancelledExcluded" class="text-base font-black text-amber-500 font-mono mt-0.5 block whitespace-nowrap">0</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/30">
+              <span class="text-emerald-500 block text-[10px] font-bold uppercase">Dòng Sạch Hợp Lệ</span>
+              <span id="auditCleanValid" class="text-base font-black text-emerald-500 font-mono mt-0.5 block whitespace-nowrap">---</span>
+            </div>
+            <div class="p-3.5 rounded-xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30">
+              <span class="text-blue-500 block text-[10px] font-bold uppercase">Đổi Trả Bù COGS</span>
+              <span id="auditReturnsProcessed" class="text-base font-black text-blue-500 font-mono mt-0.5 block whitespace-nowrap">0</span>
+            </div>
+          </div>
+
+          <!-- Audit Table Preview (Sample anomalous transactions) -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-700 dark:text-slate-300">Đối Soát Mẫu Dữ Liệu Bất Thường Đã Xử Lý:</span>
+              <div class="flex gap-1">
+                <button class="audit-tab-btn px-2.5 py-0.5 rounded-lg text-[11px] font-bold bg-orange-500 text-white" data-filter="ALL">Tất Cả</button>
+                <button class="audit-tab-btn px-2.5 py-0.5 rounded-lg text-[11px] text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" data-filter="DUPLICATE">Trùng Lặp</button>
+                <button class="audit-tab-btn px-2.5 py-0.5 rounded-lg text-[11px] text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" data-filter="CANCELLED">Đơn Hủy</button>
+                <button class="audit-tab-btn px-2.5 py-0.5 rounded-lg text-[11px] text-slate-400 hover:text-slate-700 dark:hover:text-slate-200" data-filter="RETURN">Đổi Trả Bù COGS</button>
+              </div>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-800">
+              <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                <thead class="bg-slate-50 dark:bg-slate-800/60 text-[10px] uppercase font-bold text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                  <tr>
+                    <th class="p-2.5">Mã Giao Dịch</th>
+                    <th class="p-2.5">Mã SKU</th>
+                    <th class="p-2.5">Cửa Hàng</th>
+                    <th class="p-2.5">Ngày</th>
+                    <th class="p-2.5 text-right">Số Tiền</th>
+                    <th class="p-2.5 text-center">Phân Loại</th>
+                    <th class="p-2.5">Xử Lý Của AI</th>
+                  </tr>
+                </thead>
+                <tbody id="auditTableRows" class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ==================================================== -->
+          <!-- KHU VỰC THẨM ĐỊNH & PHÊ DUYỆT CỔNG 1 (HUMAN GATE 1)  -->
+          <!-- ==================================================== -->
+          <div class="p-5 rounded-2xl bg-amber-50/50 dark:bg-amber-950/20 border-2 border-amber-200 dark:border-amber-900/40 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider font-mono">CỔNG DUYỆT 1 • BẮT BUỘC (LUẬT BẤT BIẾN SỐ 2)</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">Thẩm Định & Ký Duyệt Xác Nhận Dữ Liệu Đã Làm Sạch</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Chỉ khi Cổng 1 được phê duyệt, hệ thống mới mở khóa tính toán chỉ số Bước 3 và lập báo cáo quản trị.</p>
+              </div>
+
+              <!-- Official Gate 1 Stamp Container -->
+              <div id="gate1StampContainer" style="display: none;">
+                <div class="official-stamp-gate1">
+                  <span class="text-xs">✓ DATA VERIFIED</span>
+                  <span id="gate1StampCode" class="text-[9px] tracking-normal font-mono">PA-GATE1-CONFIRMED-8F3E</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gate 1 Approval Form -->
+            <div id="gate1FormArea" class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">Người Thẩm Định:</label>
+                <input type="text" id="gate1ApproverInput" value="Kế toán trưởng Nguyễn Văn A" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200">
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">Ghi Chú Đối Soát Thẩm Định:</label>
+                <input type="text" id="gate1NotesInput" value="Đã đối soát khớp dữ liệu bán hàng POS và kho đổi trả. Xác nhận đủ điều kiện tính toán." class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200">
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-amber-200/60 dark:border-amber-900/30">
+              <span id="gate1StatusText" class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Dữ liệu đã qua Cổng 1! Mở khóa Bước 3: Tính toán chỉ số 18 Cửa hàng.</span>
+              </span>
+              <button id="btnApproveGate1" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <span>KÝ PHÊ DUYỆT CỔNG 1</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 3: BÁO CÁO 18 CỬA HÀNG (STEP 3 - 100% CODE THUẦN)      -->
+        <!-- ============================================================== -->
+        <div id="sec-stores" class="extej-card p-6 space-y-4 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider font-mono">BƯỚC 3</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400">100% CODE THUẦN (LUẬT 1)</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5" data-i18n="storesTableTitle">Bảng Chỉ Số Chi Tiết 18 Cửa Hàng Toàn Chuỗi</h3>
+              <p class="text-xs text-slate-400" data-i18n="storesTableDesc">Nhấp vào bất kỳ cửa hàng nào để xem phân tích nguyên nhân cốt lõi (Root-cause)</p>
+            </div>
+
+            <!-- Region Filter Tabs -->
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <button class="store-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold bg-orange-500 text-white" data-region="ALL">Toàn Quốc</button>
+              <button class="store-filter-btn px-3 py-1.5 rounded-xl text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white" data-region="Miền Bắc">Miền Bắc</button>
+              <button class="store-filter-btn px-3 py-1.5 rounded-xl text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white" data-region="Miền Nam">Miền Nam</button>
+              <button class="store-filter-btn px-3 py-1.5 rounded-xl text-xs text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white" data-region="Miền Trung">Miền Trung</button>
+            </div>
+          </div>
+
+          <!-- Table 18 stores -->
+          <div class="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-800">
+            <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+              <thead class="bg-slate-50 dark:bg-slate-800/60 text-[10px] uppercase font-bold text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                <tr>
+                  <th class="p-3">Mã CH</th>
+                  <th class="p-3">Tên Điểm Bán</th>
+                  <th class="p-3">Khu Vực</th>
+                  <th class="p-3 text-right">Doanh Thu Thuần</th>
+                  <th class="p-3 text-right">Lợi Nhuận Gộp (GP)</th>
+                  <th class="p-3 text-right">Biên GP</th>
+                  <th class="p-3 text-right">% Target DT</th>
+                  <th class="p-3 text-right">Tăng MoM</th>
+                  <th class="p-3 text-right">Tỷ Lệ Trả</th>
+                  <th class="p-3 text-center">Trạng Thái</th>
+                </tr>
+              </thead>
+              <tbody id="storesTableBody" class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 4: NHẬN ĐỊNH AI & ĐỐI CHIẾU SỐ LIỆU (AI VERIFICATION)   -->
+        <!-- ============================================================== -->
+        <div id="sec-reports" class="extej-card p-6 space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-emerald-500 uppercase tracking-wider font-mono">BƯỚC 4</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400">ĐỐI CHIẾU 100% SỐ LIỆU</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5" data-i18n="reportsTitle">Nhận Định AI & Bộ Kiểm Chứng Số Liệu Không Ảo Giác</h3>
+              <p class="text-xs text-slate-400">Mọi số liệu trong bài viết của AI đều được đối chiếu khớp tuyệt đối với số do code tính ở Bước 3</p>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button id="btnPrintReport" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-xl transition-all shadow-md flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                <span>In Báo Cáo A4 / PDF</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- AI Executive Synthesis Text -->
+          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-2">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span>Bản Tóm Tắt Nhận Định Điều Hành Cấp Cao (AI Executive Synthesis)</span>
+              </span>
+              <span class="text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded">✓ CODE-VERIFIED NARRATIVE</span>
+            </div>
+            <p id="aiExecutiveNarrativeText" class="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
+              Vui lòng tải lên file dữ liệu và hoàn thành Cổng duyệt 1 & 2 để xuất báo cáo điều hành đối soát 100% bằng code.
+            </p>
+          </div>
+
+          <!-- BẢNG ĐỐI CHIẾU SỐ LIỆU NGHIÊM NGẶT (STRICT NUMBER VERIFICATION MATRIX) -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Ma Trận Đối Chiếu Số Liệu (AI Claims vs Code Calculation):</span>
+              </span>
+              <span class="text-[10px] text-slate-400">11/11 Chỉ Số Khớp Tuyệt Đối 100%</span>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-800">
+              <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                <thead class="bg-slate-50 dark:bg-slate-800/60 text-[10px] uppercase font-bold text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                  <tr>
+                    <th class="p-2.5">Chỉ Số Được Khẳng Định</th>
+                    <th class="p-2.5">Con Số Trong Bài AI</th>
+                    <th class="p-2.5">Số Do Code Tính (Bước 3)</th>
+                    <th class="p-2.5 text-center">Trạng Thái Đối Chiếu</th>
+                    <th class="p-2.5 text-center">Chứng Nhận</th>
+                  </tr>
+                </thead>
+                <tbody id="verificationTableBody" class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
+                  <!-- Dynamically rendered -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Product category mix & 4 strategic pillars -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-1">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-3">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                <span>Cơ Cấu Doanh Thu & Biên GP Theo Ngành Hàng</span>
+              </span>
+              <div id="productCategoriesList" class="space-y-2.5">
+                <!-- Dynamic categories -->
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-3">
+              <span class="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                <span>Cảnh Báo Top SKU Có Tỷ Lệ Trả Cao</span>
+              </span>
+              <div class="space-y-2 text-xs" id="topReturnSkusContainer">
+                <div class="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700 text-center text-slate-400">
+                  Chờ nạp dữ liệu để phân tích tỷ lệ hoàn trả theo SKU.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 5: CHỈ ĐẠO ĐIỀU HÀNH & CỔNG DUYỆT 2 (GATE 2 APPROVAL)   -->
+        <!-- ============================================================== -->
+        <div id="sec-decisions" class="extej-card p-6 space-y-6 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-rose-500 uppercase tracking-wider font-mono">BƯỚC 5 & CỔNG 2</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-700 dark:bg-rose-950/60 dark:text-rose-400">PHÊ DUYỆT CẤP CAO</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5" data-i18n="myCardTitle">My Card • Top 3 Cửa Hàng Điểm Nóng & Gói Chỉ Đạo Điều Hành</h3>
+              <p class="text-xs text-slate-400" data-i18n="myCardSubtitle">Ban hành quyết định can thiệp kinh doanh khẩn cấp và đóng dấu phê duyệt Cổng 2</p>
+            </div>
+
+            <!-- Gate 2 Official Seal -->
+            <div id="gate2SealContainer" style="display: none;">
+              <div class="official-stamp-gate2">
+                <span class="text-xs">★ OFFICIALLY APPROVED</span>
+                <span id="gate2SealCode" class="text-[9px] tracking-normal font-mono">PA-GATE2-OFFICIAL-2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TOP 3 BANK CARDS (Extej Style) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="bankCardsRow">
+            <!-- Dynamically rendered bank cards for top 3 stores -->
+          </div>
+
+          <!-- 4 STRATEGIC PILLARS ACCORDION -->
+          <div class="space-y-3 pt-2">
+            <h4 class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">4 Trụ Cột Hành Động Chiến Lược Toàn Chuỗi:</h4>
+            <div id="strategicPillarsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <!-- Dynamically rendered pillars -->
+            </div>
+          </div>
+
+          <!-- ==================================================== -->
+          <!-- KHU VỰC THẨM ĐỊNH & PHÊ DUYỆT CỔNG 2 (HUMAN GATE 2)  -->
+          <!-- ==================================================== -->
+          <div class="p-5 rounded-2xl bg-rose-50/50 dark:bg-rose-950/20 border-2 border-rose-200 dark:border-rose-900/40 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <span class="text-[10px] font-bold text-rose-600 dark:text-rose-400 uppercase tracking-wider font-mono">CỔNG DUYỆT 2 • BẮT BUỘC (LUẬT BẤT BIẾN SỐ 2)</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white">Giám Đốc Kinh Doanh Phê Duyệt Chỉ Đạo & Ban Hành Báo Cáo</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Sau khi ký duyệt Cổng 2, gói chỉ đạo sẽ được đóng dấu mộc đỏ điện tử và gửi đến toàn bộ 18 cửa hàng.</p>
+              </div>
+            </div>
+
+            <div id="gate2FormArea" class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+              <div>
+                <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">Người Ký Phê Duyệt:</label>
+                <input type="text" id="gate2ApproverInput" value="Austin Robertson - Giám Đốc Kinh Doanh" class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200">
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300 mb-1">Ý Kiến Chỉ Đạo Của Ban Giám Đốc:</label>
+                <input type="text" id="gate2NotesInput" value="Phê duyệt toàn bộ báo cáo và kích hoạt ngay 4 trụ cột hành động trong vòng 48 giờ." class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200">
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-rose-200/60 dark:border-rose-900/30">
+              <span id="gate2StatusText" class="text-xs font-semibold text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Chỉ thị điều hành đã được Giám Đốc Kinh Doanh phê duyệt chính thức.</span>
+              </span>
+              <button id="btnApproveGate2" class="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>KÝ PHÊ DUYỆT CỔNG 2 & ĐÓNG DẤU</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 6: NHẬT KÝ KIỂM TOÁN BẤT BIẾN (AUDIT TRAIL LOG)         -->
+        <!-- ============================================================== -->
+        <div id="sec-audit" class="extej-card p-6 space-y-4 hidden">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider font-mono">KIỂM TOÁN</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">BẤT BIẾN (IMMUTABLE LOG)</span>
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5">Nhật Ký Kiểm Toán Toàn Diện (Audit Trail Log)</h3>
+              <p class="text-xs text-slate-400">Ghi nhận chuỗi thời gian của mọi thao tác nạp file, khử trùng, duyệt Cổng 1, tính toán và duyệt Cổng 2 kèm mã băm SHA-256</p>
+            </div>
+
+            <button id="btnRefreshAudit" class="bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-200 text-xs font-bold px-3 py-1.5 rounded-xl transition-all border border-slate-200 dark:border-slate-700">
+              Làm Mới Log
+            </button>
+          </div>
+
+          <div class="overflow-x-auto rounded-xl border border-slate-100 dark:border-slate-800">
+            <table class="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+              <thead class="bg-slate-50 dark:bg-slate-800/60 text-[10px] uppercase font-bold text-slate-400 border-b border-slate-100 dark:border-slate-800">
+                <tr>
+                  <th class="p-2.5">Thời Gian</th>
+                  <th class="p-2.5">Sự Kiện</th>
+                  <th class="p-2.5">Mô Tả Thao Tác</th>
+                  <th class="p-2.5">Thực Hiện Bởi</th>
+                  <th class="p-2.5">Trạng Thái</th>
+                  <th class="p-2.5 font-mono">Mã Băm (Hash)</th>
+                </tr>
+              </thead>
+              <tbody id="auditTrailTableBody" class="divide-y divide-slate-100 dark:divide-slate-800 font-mono">
+                <!-- Dynamically rendered -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 7: SƠ ĐỒ QUY TRÌNH 5 BƯỚC & 7 LUẬT BẤT BIẾN            -->
+        <!-- ============================================================== -->
+        <div id="sec-workflow" class="extej-card p-6 space-y-6 hidden">
+          <div class="border-b border-slate-100 dark:border-slate-800 pb-3">
+            <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider font-mono">KIẾN TRÚC HỆ THỐNG</span>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5">Sơ Đồ Quy Trình 5 Bước & 7 Luật Bất Biến</h3>
+            <p class="text-xs text-slate-400">Kiến trúc chuẩn hóa đảm bảo tính chính xác, minh bạch và ổn định tuyệt đối trước hội đồng</p>
+          </div>
+
+          <!-- 5 Steps Flowchart Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs">
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+              <span class="w-6 h-6 rounded-md bg-orange-500 text-white font-bold flex items-center justify-center text-xs">1</span>
+              <span class="font-bold text-slate-800 dark:text-slate-100 block">Tiếp Nhận Dữ Liệu</span>
+              <p class="text-[11px] text-slate-500 leading-tight">Nhận dữ liệu POS/CSV/Excel, kiểm tra cấu trúc schema, từ chối sớm nếu lỗi.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+              <span class="w-6 h-6 rounded-md bg-amber-500 text-white font-bold flex items-center justify-center text-xs">2</span>
+              <span class="font-bold text-slate-800 dark:text-slate-100 block">Làm Sạch & Cổng 1</span>
+              <p class="text-[11px] text-slate-500 leading-tight">Khử trùng lặp, lọc đơn hủy, bù trừ giá vốn COGS. Kế toán trưởng ký duyệt Cổng 1.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+              <span class="w-6 h-6 rounded-md bg-blue-500 text-white font-bold flex items-center justify-center text-xs">3</span>
+              <span class="font-bold text-slate-800 dark:text-slate-100 block">Chỉ Số & 18 CH</span>
+              <p class="text-[11px] text-slate-500 leading-tight">100% tính bằng Code: Doanh thu thuần, Giá vốn COGS, Lợi nhuận gộp GP, % Kế hoạch.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+              <span class="w-6 h-6 rounded-md bg-emerald-500 text-white font-bold flex items-center justify-center text-xs">4</span>
+              <span class="font-bold text-slate-800 dark:text-slate-100 block">Nhận Định AI</span>
+              <p class="text-[11px] text-slate-500 leading-tight">Tổng hợp nguyên nhân cốt lõi. Đối chiếu 11 con số khớp code 100%.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
+              <span class="w-6 h-6 rounded-md bg-rose-500 text-white font-bold flex items-center justify-center text-xs">5</span>
+              <span class="font-bold text-slate-800 dark:text-slate-100 block">Cổng 2 & Xuất Bản</span>
+              <p class="text-[11px] text-slate-500 leading-tight">GĐKD ký mộc đỏ chỉ đạo. Xuất PDF/Excel & kích hoạt Copilot chỉ-đọc.</p>
+            </div>
+          </div>
+
+          <!-- 7 Inviolable Laws Table -->
+          <div class="space-y-2">
+            <span class="text-xs font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider">7 Luật Bất Biến Đóng Đinh Vào Kiến Trúc:</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-slate-600 dark:text-slate-300">
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-start gap-2">
+                <span class="font-bold text-orange-500 font-mono">1.</span>
+                <span><strong>AI không tính số:</strong> Toàn bộ số liệu do code tính. AI chỉ diễn giải câu chữ từ số đã có.</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-start gap-2">
+                <span class="font-bold text-orange-500 font-mono">2.</span>
+                <span><strong>Hai cổng duyệt bắt buộc:</strong> Cổng 1 (Dữ liệu sạch) & Cổng 2 (Báo cáo). Không duyệt không đi tiếp.</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-start gap-2">
+                <span class="font-bold text-orange-500 font-mono">3.</span>
+                <span><strong>Trợ lý Chat chỉ-đọc:</strong> Chặn bằng kiến trúc. Không thể sửa, xóa hay ghi đè dữ liệu.</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-start gap-2">
+                <span class="font-bold text-orange-500 font-mono">4.</span>
+                <span><strong>Từ chối sớm:</strong> Báo lỗi rõ ràng bằng tiếng Việt kèm cách sửa khi file sai cấu hình.</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-start gap-2">
+                <span class="font-bold text-orange-500 font-mono">5.</span>
+                <span><strong>Luôn có chế độ dự phòng:</strong> Fallback mode tự động kích hoạt khi API lỗi để demo không chết.</span>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 flex items-start gap-2">
+                <span class="font-bold text-orange-500 font-mono">6.</span>
+                <span><strong>Khóa API chỉ ở Backend:</strong> Không để lộ khóa API AI ra client bundle.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- SECTION 8: NẠP FILE POS / GOOGLE SHEET                         -->
+        <!-- ============================================================== -->
+        <div id="sec-upload" class="extej-card p-6 space-y-6 hidden">
+          <div class="border-b border-slate-100 dark:border-slate-800 pb-3">
+            <span class="text-[11px] font-bold text-orange-500 uppercase tracking-wider font-mono">BƯỚC 1</span>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5">Tiếp Nhận Dữ Liệu Bán Hàng & POS</h3>
+            <p class="text-xs text-slate-400">Hỗ trợ tệp CSV, XLSX hoặc kết nối trực tiếp Google Sheet đối soát 18 cửa hàng</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Upload Box 1: File Upload -->
+            <div class="p-5 rounded-2xl border-2 border-dashed border-orange-300 dark:border-slate-700 bg-orange-50/20 dark:bg-slate-800/30 flex flex-col items-center justify-center text-center space-y-3 cursor-pointer" onclick="document.getElementById('fileUploadInput').click()">
+              <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+              </div>
+              <div>
+                <span class="text-sm font-bold text-slate-800 dark:text-slate-200 block">Tải Lên File Giao Dịch POS</span>
+                <span class="text-xs text-slate-400">Hỗ trợ CSV, XLSX dung lượng tới 60.000+ dòng</span>
+              </div>
+              <button class="btn-orange-primary px-4 py-2 rounded-xl text-xs font-bold">Chọn Tệp Tin</button>
+            </div>
+
+            <!-- Upload Box 2: Google Sheet Connection -->
+            <div class="p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/40 flex flex-col justify-between space-y-3">
+              <div>
+                <span class="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                  <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                  <span>Kết Nối Google Sheet Đối Soát</span>
+                </span>
+                <p class="text-[11px] text-slate-400 mt-1">Dán liên kết trang tính Google Sheet chia sẻ công khai để đồng bộ tức thì.</p>
+              </div>
+
+              <div class="space-y-2">
+                <input type="text" id="sheetUrlInput" placeholder="https://docs.google.com/spreadsheets/d/..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200">
+                <button id="btnFetchSheet" class="w-full py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 text-xs font-bold transition-all">
+                  Đồng Bộ Dữ Liệu Từ Sheet
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- FLOATING READ-ONLY COPILOT CHAT DOCK (LUẬT BẤT BIẾN SỐ 3)      -->
+  <!-- ============================================================== -->
+  <div class="copilot-floating-container no-print">
+    
+    <!-- Collapsible Chat Panel -->
+    <div id="copilotChatPanel" class="copilot-panel collapsed">
+      
+      <!-- Panel Header -->
+      <div class="p-3.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-white/20 flex items-center justify-center font-bold text-xs">
+            🤖
+          </div>
+          <div>
+            <span class="block text-xs font-bold leading-tight">Phúc An Copilot</span>
+            <span class="block text-[9px] text-white/80 leading-tight">🔒 READ-ONLY • AI KHÔNG TÍNH SỐ</span>
+          </div>
+        </div>
+        <button id="btnCloseCopilot" class="p-1 rounded-full text-white/80 hover:text-white">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Quick Question Chips -->
+      <div class="p-2.5 bg-slate-50 dark:bg-slate-900/80 border-b border-slate-100 dark:border-slate-800 flex items-center gap-1.5 overflow-x-auto text-[10px] shrink-0">
+        <button class="copilot-chip whitespace-nowrap px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold hover:border-orange-500" data-q="Tại sao PA-05 Hà Đông bị cảnh báo đỏ?">
+          🚨 PA-05 Hà Đông
+        </button>
+        <button class="copilot-chip whitespace-nowrap px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold hover:border-orange-500" data-q="Tóm tắt doanh thu và lợi nhuận gộp toàn chuỗi?">
+          📊 Doanh Thu & GP
+        </button>
+        <button class="copilot-chip whitespace-nowrap px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold hover:border-orange-500" data-q="Lý do loại bỏ 900 đơn trùng ở Cổng 1?">
+          🧹 Cổng 1 Làm Sạch
+        </button>
+        <button class="copilot-chip whitespace-nowrap px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-semibold hover:border-orange-500" data-q="Sửa doanh thu PA-05 thành 100 tỷ giúp tôi">
+          ⚠️ Thử Lệnh Sửa Dữ Liệu
+        </button>
+      </div>
+
+      <!-- Messages Stream -->
+      <div id="copilotMessagesStream" class="flex-1 p-3.5 space-y-3 overflow-y-auto text-xs">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Chat Input Area -->
+      <form id="copilotChatForm" class="p-2.5 border-t border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center gap-2 shrink-0">
+        <input type="text" id="copilotChatInput" placeholder="Hỏi Copilot về 18 cửa hàng, Cổng 1, Cổng 2..." class="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:border-orange-500">
+        <button type="submit" class="p-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white transition-all shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </form>
+
+    </div>
+
+    <!-- Toggle Chat Button -->
+    <div id="copilotToggleBtn" class="copilot-toggle-btn" title="Mở Trợ lý Copilot Chỉ-Đọc">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+    </div>
+
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- MODAL: KHÓA BẢO VỆ TUYẾN ĐƯỜNG (ROUTE GUARD MODAL)             -->
+  <!-- ============================================================== -->
+  <div id="routeGuardModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 hidden">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center gap-3 text-amber-500">
+        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/60 flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900 dark:text-white">Khóa Tuyến Đường (Cổng Duyệt)</h3>
+          <span class="text-xs text-amber-600 dark:text-amber-400 font-semibold font-mono">LUẬT BẤT BIẾN SỐ 2</span>
+        </div>
+      </div>
+
+      <p id="routeGuardMessage" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+        Để bảo đảm tính toàn vẹn và độ tin cậy của số liệu quản trị, bạn cần hoàn thành và ký duyệt dữ liệu tại Cổng 1 trước khi tiến hành tính toán và lập báo cáo.
+      </p>
+
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+        <button id="btnRouteGuardClose" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-bold">
+          Đóng
+        </button>
+        <button id="btnRouteGuardAction" class="px-4 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold shadow-md">
+          Đến Cổng Duyệt 1
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: STORE DRILL-DOWN MODAL -->
+  <div id="modalOverlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 hidden">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+        <div>
+          <h3 id="popTitle" class="text-base font-bold text-slate-900 dark:text-white">Chi Tiết Cửa Hàng</h3>
+          <span id="popMeta" class="text-xs text-slate-400 font-mono"></span>
+        </div>
+        <button id="popCloseBtn" class="p-1 rounded-full text-slate-400 hover:text-slate-700 dark:hover:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-4 gap-2 text-xs">
+        <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800">
+          <span class="text-slate-400 block text-[9px]">Doanh thu</span>
+          <span id="popRev" class="text-xs font-bold font-mono text-slate-800 dark:text-white block mt-0.5"></span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800">
+          <span class="text-slate-400 block text-[9px]">% Target</span>
+          <span id="popTarget" class="text-xs font-bold font-mono text-orange-500 block mt-0.5"></span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800">
+          <span class="text-slate-400 block text-[9px]">Biên GP</span>
+          <span id="popMargin" class="text-xs font-bold font-mono text-blue-500 block mt-0.5"></span>
+        </div>
+        <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800">
+          <span class="text-slate-400 block text-[9px]">Tỷ lệ trả</span>
+          <span id="popReturn" class="text-xs font-bold font-mono text-rose-500 block mt-0.5"></span>
+        </div>
+      </div>
+
+      <div class="p-3 rounded-xl bg-orange-50 dark:bg-slate-800/80 border border-orange-100 dark:border-slate-700 space-y-1">
+        <span class="text-[10px] uppercase font-bold text-orange-600 dark:text-orange-400">Nguyên nhân cốt lõi (Root Cause):</span>
+        <p id="popReason" class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed"></p>
+      </div>
+
+      <div class="flex justify-end pt-2">
+        <button id="popActionBtn" class="btn-orange-primary px-4 py-2 rounded-xl text-xs font-bold shadow-md">
+          Đóng Cửa Sổ
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECOMMENDATION DETAIL & ROADMAP MODAL -->
+  <div id="recommendationDetailModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-xl w-full p-6 shadow-2xl border border-slate-100 dark:border-slate-800 space-y-5 animate-in fade-in zoom-in-95 duration-150">
+      <div class="flex items-start justify-between">
+        <div class="space-y-1">
+          <span id="modalRecBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 dark:bg-orange-950/60 dark:text-orange-300">ĐỀ XUẤT CHIẾN LƯỢC</span>
+          <h3 id="modalRecTitle" class="text-base font-bold text-slate-900 dark:text-white leading-snug">Chi Tiết Đề Xuất Chiến Lược AI</h3>
+          <span id="modalRecTarget" class="text-xs text-slate-400 block">Khu vực: Toàn hệ thống</span>
+        </div>
+        <button id="btnCloseRecModal" class="p-1 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="p-3.5 rounded-2xl bg-orange-50/50 dark:bg-slate-800/50 border border-orange-200/60 dark:border-slate-700 space-y-1.5">
+        <span class="text-[11px] font-bold text-orange-600 dark:text-orange-400 block uppercase tracking-wider font-mono">DỰ KIẾN TÁC ĐỘNG KINH DOANH (ROI):</span>
+        <span id="modalRecImpact" class="text-sm font-bold text-slate-900 dark:text-white block">+18% Doanh thu</span>
+        <p id="modalRecSummary" class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 uppercase tracking-wider">Lộ Trình Triển Khai 3 Giai Đoạn:</h4>
+        <div id="modalRecSteps" class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+          <!-- Steps -->
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-800">
+        <button id="btnModalAskCopilot" class="px-4 py-2 rounded-xl text-xs font-bold text-orange-600 bg-orange-50 dark:bg-orange-950/40 hover:bg-orange-100 dark:hover:bg-orange-900/60 flex items-center gap-1.5 transition-all">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+          <span>Hỏi Copilot Tư Vấn Sâu Hơn</span>
+        </button>
+
+        <button id="btnModalToggleApply" class="btn-orange-primary px-5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md">
+          <span>Áp Dụng Đề Xuất Này</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "phuc-an-retail-copilot",
+  "version": "1.0.0",
+  "description": "Phúc An Retail Copilot - AI Agent Dashboard & Analytics (5 Bước & 2 Cổng Duyệt)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "retail",
+    "copilot",
+    "ai-agent",
+    "dashboard",
+    "analytics"
+  ],
+  "author": "Phúc An Retail",
+  "license": "ISC"
+}

@@ -1,0 +1,381 @@
+
+
+/* ==========================================
+   PIPELINE 5 STEPS & 2 GATES STYLES
+   ========================================== */
+.pipeline-stepper {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+  background: var(--input-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 8px;
+  overflow-x: auto;
+}
+
+@media (max-width: 1180px) {
+  .pipeline-stepper {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .step-card {
+    flex: 1 0 135px;
+    min-width: 135px;
+  }
+}
+
+.step-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  user-select: none;
+  min-width: 0;
+}
+
+.step-card:hover {
+  transform: translateY(-1px);
+  border-color: #FF7A00;
+}
+
+.step-card.step-done {
+  border-color: #10B981;
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.step-card.step-active {
+  border-color: #FF6B00;
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2);
+  background: rgba(255, 107, 0, 0.05);
+}
+
+.step-card.step-locked {
+  opacity: 0.65;
+  background: var(--input-bg);
+  cursor: not-allowed;
+}
+
+.step-badge-gate {
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Sidebar Link Flexbox */
+.sidebar-link {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  white-space: nowrap !important;
+}
+
+.sidebar-link > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-link > span:last-child {
+  flex-shrink: 0;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+/* Official Stamps for Gate 1 & Gate 2 */
+.official-stamp-gate1 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border: 2.5px dashed #10B981;
+  border-radius: 12px;
+  color: #10B981;
+  font-weight: 900;
+  font-family: 'Space Grotesk', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: rotate(-1.5deg);
+  background: rgba(16, 185, 129, 0.06);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.official-stamp-gate2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border: 3px double #EF4444;
+  border-radius: 14px;
+  color: #DC2626;
+  font-weight: 900;
+  font-family: 'Space Grotesk', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transform: rotate(1deg);
+  background: rgba(239, 68, 68, 0.06);
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.18);
+}
+
+/* AI Verification Highlights */
+.number-verified-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Copilot Floating Dock */
+.copilot-floating-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 40;
+}
+
+.copilot-panel {
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  height: 520px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.copilot-panel.collapsed {
+  display: none;
+}
+
+.copilot-toggle-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #FF7A00 0%, #FA541C 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.copilot-toggle-btn:hover {
+  transform: scale(1.06);
+}
+
+/* Audit Log Table */
+.audit-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* AI Advisory & Strategic Recommendations Styles */
+.ai-filter-pill {
+  padding: 6px 14px;
+  border-radius: 12px;
+  background: var(--bg-main);
+  border: 1px solid var(--card-border);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ai-filter-pill:hover {
+  border-color: #FF7A00;
+  color: #FF7A00;
+}
+
+.ai-filter-pill.active {
+  background: #FF7A00;
+  border-color: #FF7A00;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(255, 122, 0, 0.25);
+}
+
+.ai-rec-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-rec-card:hover {
+  transform: translateY(-3px);
+  border-color: #FF7A00;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.ai-rec-card.applied {
+  border-color: #10B981;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--card-bg) 100%);
+}
+
+.ai-advice-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  transition: all 0.2s ease;
+}
+
+.ai-advice-panel:hover {
+  border-color: var(--accent-orange);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   ASHLAR DESIGN SYSTEM STYLES (MATCH VIDEO)
+   ========================================== */
+.ashlar-hero-card {
+  background: linear-gradient(135deg, #2D3A29 0%, #1A2417 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(26, 36, 23, 0.28);
+}
+
+.ashlar-hero-card::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(163, 230, 53, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ashlar-pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.ashlar-pill.active {
+  background: #111827;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+body.dark .ashlar-pill.active {
+  background: #F8FAFC;
+  color: #0F172A;
+}
+
+.ashlar-pill:not(.active) {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.ashlar-pill:not(.active):hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-main);
+}
+
+body.dark .ashlar-pill:not(.active):hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.ashlar-option-card {
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--card-bg);
+  position: relative;
+}
+
+.ashlar-option-card:hover {
+  border-color: #2D3A29;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.ashlar-option-card.selected {
+  border-color: #111827;
+  background: rgba(45, 58, 41, 0.05);
+}
+
+body.dark .ashlar-option-card.selected {
+  border-color: #A3E635;
+  background: rgba(163, 230, 53, 0.06);
+}
+
+.ashlar-table-row {
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.ashlar-table-row:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+body.dark .ashlar-table-row:hover {
+  background-color: rgba(255, 255, 255, 0.035);
+}
+
+.ashlar-gauge-bar {
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+body.dark .ashlar-gauge-bar {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ashlar-gauge-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: #2D3A29;
+  transition: width 0.4s ease;
+}
+
+body.dark .ashlar-gauge-fill {
+  background: #A3E635;
+}
+

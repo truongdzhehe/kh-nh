@@ -1,0 +1,19 @@
+store_id,store_name,region,city,manager
+PA-01,Phúc An Cầu Giấy,Miền Bắc,Hà Nội,Nguyễn Văn A
+PA-02,Phúc An Đống Đa,Miền Bắc,Hà Nội,Trần Thị B
+PA-03,Phúc An Hai Bà Trưng,Miền Bắc,Hà Nội,Lê Văn C
+PA-04,Phúc An Hoàn Kiếm,Miền Bắc,Hà Nội,Phạm Minh D
+PA-05,Phúc An Hà Đông,Miền Bắc,Hà Nội,Hoàng Quốc E
+PA-06,Phúc An Long Biên,Miền Bắc,Hà Nội,Đỗ Thị F
+PA-07,Phúc An Quận 1,Miền Nam,TP.HCM,Vũ Đình G
+PA-08,Phúc An Quận 3,Miền Nam,TP.HCM,Bùi Lan H
+PA-09,Phúc An Quận 7,Miền Nam,TP.HCM,Đặng Quốc I
+PA-10,Phúc An Bình Thạnh,Miền Nam,TP.HCM,Ngô Thu K
+PA-11,Phúc An Tân Bình,Miền Nam,TP.HCM,Dương Văn L
+PA-12,Phúc An Thủ Đức,Miền Nam,TP.HCM,Hồ Bảo M
+PA-13,Phúc An Hải Châu,Miền Trung,Đà Nẵng,Phan Thị N
+PA-14,Phúc An Sơn Trà,Miền Trung,Đà Nẵng,Võ Minh P
+PA-15,Phúc An Ngô Quyền,Miền Bắc,Hải Phòng,Trịnh Văn Q
+PA-16,Phúc An Ninh Kiều,Miền Nam,Cần Thơ,Lý Thanh R
+PA-17,Phúc An Thủ Dầu Một,Miền Nam,Bình Dương,Mai Ngọc S
+PA-18,Phúc An Biên Hòa,Miền Nam,Đồng Nai,Đinh Tiến T
